@@ -2,7 +2,7 @@ import requests
 import pytest
 
 URL = 'https://api.pokemonbattle.ru/v2'
-TOKEN = '7d151dc927dd3a82b9b951250464cd53'
+TOKEN = 'this_is_my_token'
 HEADER = {'Content-Type' :'application/json', 'trainer_token' :TOKEN}
 TRAINER_ID = '39659'
 
@@ -18,4 +18,5 @@ def test_part_of_response():
 @pytest.mark.parametrize('key, value', [('name', 'Бульбазавр'), ('trainer_id', TRAINER_ID), ('id', '373079')])
 def test_parametrize(key,value):
     response_parametrize = requests.get(url = f'{URL}/pokemons', params= {'trainer_id' : TRAINER_ID})
+
     assert  response_parametrize.json()["data"][0][key] == value 
