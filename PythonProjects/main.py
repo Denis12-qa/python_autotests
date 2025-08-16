@@ -1,13 +1,13 @@
 import requests
 
 URL = 'https://api.pokemonbattle.ru/v2'
-TOKEN = '7d151dc927dd3a82b9b951250464cd53'
+TOKEN = 'this_is_my_token'
 HEADER = {'Content-Type' :'application/json', 'trainer_token' :TOKEN}
 body_registration = {
     "trainer_token": TOKEN,
-    "email": "senior.mazin2016@yandex.ru",
-    "password": "Powerbob12",
-    "password_re": "Powerbob12"
+    "email": "Login",
+    "password": "Password",
+    "password_re": "Password"
 }
 body_confirmation =  {
     "trainer_token": TOKEN
@@ -27,4 +27,5 @@ response_create  = requests.post(url = f'{URL}/pokemons', headers = HEADER, json
 print(response_create.text) 
 
 pokemon_id = response_create.json()['id']
+
 print(pokemon_id)
